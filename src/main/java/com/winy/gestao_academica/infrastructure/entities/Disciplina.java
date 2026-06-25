@@ -3,6 +3,8 @@ package com.winy.gestao_academica.infrastructure.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -21,6 +23,9 @@ public class Disciplina {
 
     @Column(name = "carga_horaria")
     private Integer cargaHoraria;
+
+    @Column(name = "pre_requisitos")
+    private Set<Disciplina> preRequisistos;
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
