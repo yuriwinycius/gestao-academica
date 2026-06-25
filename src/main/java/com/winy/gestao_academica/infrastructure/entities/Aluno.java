@@ -1,4 +1,4 @@
-package com.winy.gestao_academica.entities;
+package com.winy.gestao_academica.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,8 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "Professores")
-public class Professor {
+@Table(name = "Alunos")
+public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,8 @@ public class Professor {
     @Column(name = "nome")
     private String nome;
 
-    @Column(name = "especialidade")
-    private String especialidade;
+    @Column(name = "matricula")
+    private String matricula;
 
     @Column(name = "email", unique = true)
     private String email;

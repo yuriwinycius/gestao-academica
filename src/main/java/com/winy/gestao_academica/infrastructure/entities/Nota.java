@@ -1,4 +1,4 @@
-package com.winy.gestao_academica.entities;
+package com.winy.gestao_academica.infrastructure.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
