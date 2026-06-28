@@ -1,7 +1,8 @@
 package com.winy.gestao_academica.controllers;
 
 
-import com.winy.gestao_academica.infrastructure.entities.Aluno;
+import com.winy.gestao_academica.infrastructure.dtos.request.AlunoRequestDTO;
+import com.winy.gestao_academica.infrastructure.dtos.response.AlunoResponseDTO;
 import com.winy.gestao_academica.services.AlunoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +16,14 @@ public class AlunoCrontroller {
     private final AlunoService alunoService;
 
     @PostMapping
-    public ResponseEntity<Void> createAluno(@RequestBody Aluno aluno) {
-        alunoService.criarAluno(aluno);
+    public ResponseEntity<AlunoResponseDTO> createAluno(@RequestBody AlunoRequestDTO alunoDTO) {
+        alunoService.criarAluno(alunoDTO);
 
         return ResponseEntity.accepted().build();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Aluno> getAlunoById(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<AlunoResponseDTO> getAlunoById(@PathVariable(name = "id") Long id) {
         return ResponseEntity.ok(alunoService.findAlunoById(id));
     }
 
@@ -34,9 +35,9 @@ public class AlunoCrontroller {
     }
 
     @PutMapping
-    public ResponseEntity<Void> changeAlunoBy(@RequestParam(name = "id") Long id,
-                                             @RequestBody Aluno aluno) {
-        alunoService.changeAlunoById(id, aluno);
+    public ResponseEntity<AlunoResponseDTO> changeAlunoBy(@RequestParam(name = "id") Long id,
+                                             @RequestBody AlunoRequestDTO alunoDTO) {
+        alunoService.changeAlunoById(id, alunoDTO);
 
         return ResponseEntity.ok().build();
     }
