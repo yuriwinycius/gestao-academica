@@ -27,5 +27,5 @@ public class Matricula {
     private Long disciplinaId;
 
     @Column(name = "data_matricula")
-    private LocalDate dataMatricula;
+    private LocalDate dataMatricula = LocalDate.now();
 }

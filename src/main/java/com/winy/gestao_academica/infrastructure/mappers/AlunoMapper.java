@@ -21,6 +21,6 @@ public class AlunoMapper {
                 aluno.getId(),
                 aluno.getNome(),
                 aluno.getEmail()
-        );
+                );
     }
 }
