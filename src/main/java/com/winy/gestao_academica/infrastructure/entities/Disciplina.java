@@ -25,9 +25,9 @@ public class Disciplina {
     private Integer cargaHoraria;
 
     @Column(name = "pre_requisitos")
-    private Set<Disciplina> preRequisistos;
+    private Set<Long> preRequisistos;
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private Professor professorId;
+    private Long professorId;
 }

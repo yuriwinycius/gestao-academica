@@ -20,11 +20,11 @@ public class Matricula {
 
     @ManyToOne
     @JoinColumn(name = "aluno_id")
-    private Aluno alunoId;
+    private Long alunoId;
 
     @ManyToOne
     @JoinColumn(name = "disciplina_id")
-    private Disciplina disciplinaId;
+    private Long disciplinaId;
 
     @Column(name = "data_matricula")
     private LocalDate dataMatricula;
