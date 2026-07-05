@@ -20,7 +20,7 @@ public class Aluno {
     private String nome;
 
     @Column(name = "matricula")
-    private String matricula;
+    private Long matricula;
 
     @Column(name = "email", unique = true)
     private String email;
