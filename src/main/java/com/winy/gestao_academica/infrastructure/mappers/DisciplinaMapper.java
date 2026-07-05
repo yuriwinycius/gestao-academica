@@ -12,7 +12,6 @@ public class DisciplinaMapper {
 
         disciplina.setNome(dto.nome());
         disciplina.setCargaHoraria(dto.cargaHoraria());
-        disciplina.setProfessorId(dto.professorId());
         disciplina.setPreRequisistos(dto.preRequisistos());
 
         return disciplina;

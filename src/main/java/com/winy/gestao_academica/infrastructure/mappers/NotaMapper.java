@@ -9,10 +9,7 @@ public class NotaMapper {
     public Nota toEntity(NotaRequestDTO dto) {
 
         Nota nota = new Nota();
-
         nota.setValor(dto.valor());
-        nota.setAlunoId(dto.alunoId());
-        nota.setDisciplinaId(dto.disciplinaId());
 
         return nota;
     }

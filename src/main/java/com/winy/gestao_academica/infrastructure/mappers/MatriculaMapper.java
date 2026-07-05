@@ -11,8 +11,7 @@ public class MatriculaMapper {
 
         Matricula matricula = new Matricula();
 
-        matricula.setAlunoId(dto.alunoId());
-        matricula.setDisciplinaId(dto.disciplinaId());
+        matricula.setDisciplinasCursando(dto.disciplinasCursando());
 
         return matricula;
     }
@@ -22,7 +21,8 @@ public class MatriculaMapper {
         return new MatriculaResponseDTO(
                 matricula.getId(),
                 matricula.getAlunoId(),
-                matricula.getDisciplinaId(),
+                matricula.getDisciplinasCursando(),
+                matricula.getDisciplinasRealizadas(),
                 matricula.getDataMatricula()
         );
     }
