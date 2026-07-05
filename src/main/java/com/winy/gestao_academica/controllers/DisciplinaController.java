@@ -15,8 +15,9 @@ public class DisciplinaController {
     private final DisciplinaService disciplinaService;
 
     @PostMapping
-    public ResponseEntity<DisciplinaResponseDTO> createDisciplina(@RequestBody DisciplinaRequestDTO disciplinaDTO) {
-        disciplinaService.criarDisciplina(disciplinaDTO);
+    public ResponseEntity<DisciplinaResponseDTO> createDisciplina(@RequestBody DisciplinaRequestDTO disciplinaDTO,
+                                                                  @RequestParam(name = "professorId") Long professorId) {
+        disciplinaService.criarDisciplina(disciplinaDTO, professorId);
 
         return ResponseEntity.accepted().build();
     }
@@ -35,8 +36,10 @@ public class DisciplinaController {
 
     @PutMapping
     public ResponseEntity<DisciplinaResponseDTO> changeDisciplinaBy(@RequestParam(name = "id") Long id,
-                                             @RequestBody DisciplinaRequestDTO disciplinaDTO) {
-        disciplinaService.changeDisciplinaById(id, disciplinaDTO);
+                                                                    @RequestBody DisciplinaRequestDTO disciplinaDTO,
+                                                                    @RequestParam(name = "professorId") Long professorId) {
+
+        disciplinaService.changeDisciplinaById(id, disciplinaDTO, professorId);
 
         return ResponseEntity.ok().build();
     }

@@ -2,6 +2,7 @@ package com.winy.gestao_academica.services;
 
 import com.winy.gestao_academica.infrastructure.dtos.request.DisciplinaRequestDTO;
 import com.winy.gestao_academica.infrastructure.dtos.response.DisciplinaResponseDTO;
+import com.winy.gestao_academica.infrastructure.dtos.response.ProfessorResponseDTO;
 import com.winy.gestao_academica.infrastructure.entities.Disciplina;
 import com.winy.gestao_academica.infrastructure.mappers.DisciplinaMapper;
 import com.winy.gestao_academica.infrastructure.repositories.DisciplinaRepository;
@@ -14,11 +15,16 @@ import org.springframework.stereotype.Service;
 public class DisciplinaService {
 
     private final DisciplinaRepository disciplinaRepository;
+    private final ProfessorService professorService;
+
     private final DisciplinaMapper disciplinaMapper;
 
-    public DisciplinaResponseDTO criarDisciplina(DisciplinaRequestDTO disciplinaRequestDTO) {
+    public DisciplinaResponseDTO criarDisciplina(DisciplinaRequestDTO disciplinaRequestDTO, Long professorId) {
+
+        ProfessorResponseDTO professorResponseDTO = professorService.findprofessorById(professorId);
 
         Disciplina disciplina = disciplinaMapper.toEntity(disciplinaRequestDTO);
+        disciplina.setProfessorId(professorResponseDTO.id());
 
         disciplinaRepository.save(disciplina);
        
@@ -38,15 +44,19 @@ public class DisciplinaService {
         disciplinaRepository.deleteById(id);
     }
 
-    public DisciplinaResponseDTO changeDisciplinaById(Long id, DisciplinaRequestDTO disciplinaDTO) {
+    public DisciplinaResponseDTO changeDisciplinaById(Long id, DisciplinaRequestDTO disciplinaDTO,
+                                                      Long professorId) {
+
+        ProfessorResponseDTO professorResponseDTO = professorService.findprofessorById(professorId);
 
         Disciplina disciplina = disciplinaRepository.findById(id)
                 .orElseThrow(() ->
                         new NullPointerException("Disciplina não encontrada por id: " + id));
 
+
         disciplina.setNome(disciplinaDTO.nome());
         disciplina.setPreRequisistos(disciplinaDTO.preRequisistos());
-        disciplina.setProfessorId(disciplinaDTO.professorId());
+        disciplina.setProfessorId(professorResponseDTO.id());
         disciplina.setCargaHoraria(disciplinaDTO.cargaHoraria());
 
         Disciplina disciplinaAtualizada = disciplinaRepository.save(disciplina);
