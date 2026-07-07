@@ -1,6 +1,6 @@
 package com.winy.gestao_academica.infrastructure.dtos.request;
 
-import java.util.List;
+import java.util.Set;
 
-public record MatriculaRequestDTO(List<Long> disciplinasCursando) {
+public record MatriculaRequestDTO(Set<Long> disciplinasCursando) {
 }

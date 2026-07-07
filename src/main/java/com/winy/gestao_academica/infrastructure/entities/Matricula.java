@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +25,7 @@ public class Matricula {
 
     @ManyToOne
     @JoinColumn(name = "disciplina_cursando")
-    private List<Long> disciplinasCursando;
+    private Set<Long> disciplinasCursando;
 
     @ManyToOne
     @JoinColumn(name = "disciplinas_realizadas")

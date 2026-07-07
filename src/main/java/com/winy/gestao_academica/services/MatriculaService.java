@@ -57,7 +57,6 @@ public class MatriculaService {
                 .orElseThrow(() ->
                         new NullPointerException("Matricula não encontrada por id: " + id));
 
-
         matricula.setDisciplinasCursando(matriculaRequestDTO.disciplinasCursando());
         matricula.setAlunoId(alunoResponseDTO.id());
 
