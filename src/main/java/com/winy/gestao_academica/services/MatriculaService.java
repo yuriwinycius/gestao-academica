@@ -1,12 +1,8 @@
 package com.winy.gestao_academica.services;
 
-import com.winy.gestao_academica.infrastructure.dtos.request.DisciplinaRequestDTO;
 import com.winy.gestao_academica.infrastructure.dtos.request.MatriculaRequestDTO;
 import com.winy.gestao_academica.infrastructure.dtos.response.AlunoResponseDTO;
-import com.winy.gestao_academica.infrastructure.dtos.response.DisciplinaResponseDTO;
 import com.winy.gestao_academica.infrastructure.dtos.response.MatriculaResponseDTO;
-import com.winy.gestao_academica.infrastructure.dtos.response.ProfessorResponseDTO;
-import com.winy.gestao_academica.infrastructure.entities.Disciplina;
 import com.winy.gestao_academica.infrastructure.entities.Matricula;
 import com.winy.gestao_academica.infrastructure.mappers.MatriculaMapper;
 import com.winy.gestao_academica.infrastructure.repositories.MatriculaRepository;
